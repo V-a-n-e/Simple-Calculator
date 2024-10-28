@@ -1,0 +1,269 @@
+/* Vanessa Rodriguez */
+/* November 24, 2024 */
+
+/* CSS will style the calculator to be user-friendly */
+
+body {
+    /* Use flexbox to align child elements */
+    display: flex; /* Enables flexbox layout for the body element */
+    justify-content: center; /* Centers child elements horizontally */
+    align-items: center; /* Centers child elements vertically */
+    height: 100vh; /* Sets the height of the body to 100% of the viewport height */
+
+    font-family: Arial, sans-serif; /* Sets the font family to Arial (for answers displayed and buttons) */
+    background-color: transparent; /* Sets the background color of the webpage to white */
+
+    /* Image path for background image I created */
+    background-image: url(https://github.com/user-attachments/assets/c7f8c530-91ba-40e2-a783-743c41b96739); 
+    background-size: cover; /* Ensures the image covers the entire body */
+    background-position: center; /* Centers the image */
+        
+    background-repeat: no-repeat; /* Prevents repeating the image */
+}
+
+/* Display around the calculator */
+.calculator {
+
+    display: flex; /* Enables flexbox layout to arrange items inside the calculator */
+    flex-direction: column; /* Arranges items (like the display and buttons) in a vertical column */
+    align-items: center; /* Centers the items horizontally within the calculator */
+
+    background-color: #e5ffff; /* Sets the background color of the calculator */
+    padding: 13px; /* The padding surrounding the answer display and buttons */
+    border-radius: 6px; /* Rounds the corners of the calculator's border */
+    box-shadow: 0 10px 10px rgba(0,0,0, 0.5); /* Adds a subtle shadow around the calculator to give it a 3D effect */
+    width: 430px; /* Defines the width of the calculator */
+}
+
+/* Flex container to align the display and AC button side by side */
+.display-container {
+    display: flex; /* Puts the display and AC button in a row */
+    align-items: flex-start; /* Aligns them at the top */
+    width: 100%; /* Makes the container take up the full width */
+    margin-bottom: 10px; /* Adds space below the container */
+}
+
+/* Where input and answers are displayed */
+#display {
+    flex: 1; /* Allows the display to take up the remaining horizontal space in its container */
+
+    background-color: #b3e5d5; /* Set the background color */
+
+    width: 100%; /* Use full width of the container */
+    height: 40px; /* Set the height to 40px */
+
+    padding: 0px; /* No extra space inside the display */
+
+    font-size: 2em; /* Set the font to 2em */
+    text-align: right; /* Align text to the right */
+    color: #08468c; /* Set text color */
+
+    border: 2px solid #08468c; /* Set border color same as text color */
+    border-radius: 6px; /* Round the corners */
+
+    margin-bottom: 10px; /* Add space below the display (for buttons) */
+    margin-left: -1px; /* Add space between display and AC button */
+
+    display: block; /* Make the display a block element */
+    box-sizing: border-box; /* Include padding and border in size */
+    padding-right: 20px; /* Add space between text and right border */
+    padding-left: 20px; /* Add space between text and left border */
+}
+
+/* AC button */
+#clear-all {
+    background-color: #9ddeee; /* Set the background color */
+
+    width: 59px; /* Set the width of the button */
+    height: 40px; /* Set the height of the button */
+    line-height: 1; /* Adjust line height to ensure text is vertically centered */
+
+    padding: 10px; /* Space around the text */
+    margin-left: 15px; /* Add space between display and AC button */
+    margin-right: -2px; /* Add space between AC button and right side of calculator */
+
+    border: 2px solid #1c304e; /* Set border color same as font color */
+    border-radius: 6px; /* Round the corners of the button */
+
+    font-size: 1.0em; /* Set the font to 1.0em */
+    color: #1c304e; /* Set the text color */
+    font-weight: bold;  /* Make the font bold */
+
+    cursor: pointer; /* Change the cursor to a pointer (hand icon) when hovering over the button */
+}
+
+/* Button layout */
+.buttons {
+    display: grid; /* Defines the layout as a grid container */
+
+    /* 6 elements per row, 
+    '1fr' means each column takes up one fraction of the available space */
+    grid-template-columns: repeat(6, 1fr); 
+    gap: 15px; /* The gap space between each button */
+}
+
+/* Button features */
+button {
+    border-radius: 6px; /* Round the corners of the button  */
+
+    width: 60px; /* Set width of the button */
+
+    padding: 10px; /* Space around the text */
+
+    font-size: 1.0em; /* Set font size to 1.0em */
+    
+    cursor: pointer; /* Change the cursor to a pointer (hand icon) when hovering over the button */
+    
+    /* Creates a smooth transition effect for the background color 
+       when the button is hovered over or focused. 
+       The transition lasts 0.3 seconds */
+    transition: background-color 0.3s;
+
+    
+}
+
+/* Darker color buttons (like sin, log, etc.) */
+.dark-button {
+    background-color: #9ddeee; /* Set the background color */
+
+    color: #1c304e; /* Set color of text */
+    font-weight: bold;  /* Make the font bold */
+
+    border: 2px solid #1c304e; /* Set border color same as font color */
+}
+
+/* Color for keypad buttons (like 0-9), decimal, and = */
+.keypad-button {
+    background-color: #79e6d6; /* Set the background color */
+
+    color: #086569; /* Set color of text */
+    font-weight: bold;  /* Make the font bold */
+
+    border: 2px solid #086569; /* Set border color same as font color */
+}
+
+/* When cursor hovers over button */
+button:hover {
+    background-color: rgb(108, 199, 215); /* Set color of background when hovering */
+}
+
+/* Toggle Switch */
+.switch {
+    position: absolute; /* Positions the switch absolutely */
+    top: 20px; /* Places the switch 20px from the top of the webpage */
+    left: 20px; /* Places the switch 20px from the left of the webpage */
+    display: inline-block; /* Makes the switch an inline-block element so it can have width and height */
+    width: 60px; /* Sets the width of the switch container to 60px */
+    height: 34px;  /* Sets the height of the switch container to 34px */
+  }
+  
+  /* The input element is hidden from view */
+  .switch input {
+    display: none;
+  }
+  
+  /* Styles the toggle switch */
+  .slider {
+    background-color: #9ddeee; /* Set the background color of toggle switch (for light mode) */
+    transition: 0.4s; /* Adds a smooth transition effect when the slider moves */
+    border-radius: 34px; /* Rounds the edges of the slider to make it oval-shaped */
+
+    position: absolute; /* Positions the slider absolutely within its container */
+
+    cursor: pointer; /* Changes the cursor to a pointer when hovering over the slider */
+    
+    top: 0; /* Positions the slider at the top of its container */
+    left: 0; /* Positions the slider at the left of its container */
+    right: 0; /* Stretches the slider to the right edge of its container */
+    bottom: 0; /* Stretches the slider to the bottom of its container */
+  }
+  
+  /* The 'before' pseudo-element is created inside the .slider element */
+  .slider:before {
+    background-color: white; /* Sets the color of the toggle circle to white */
+    transition: 0.4s; /* Smoothly animates any change in the element over 0.4 seconds */
+    border-radius: 50%; /* Makes the element perfectly circular (50% radius) */
+
+    height: 26px; /* Sets the height of the toggle circle (slider knob) */
+    width: 26px; /* Sets the width of the toggle circle */
+    left: 4px; /* Positions the circle 4px from the left inside the switch */
+    bottom: 4px; /* Positions the circle 4px from the bottom inside the switch */
+
+    position: absolute; /* Positions the element relative to the nearest positioned ancestor */
+    
+    content: ""; /* Creates an empty content box (required for 'before' pseudo-element) */
+  }
+  
+  /* When the checkbox input is checked, apply this style to the element with the class "slider" that comes right after the checkbox */
+  input:checked + .slider {
+    background-color: black; /* When clicked, change color of toggle switch background to black (for dark mode) */
+  }
+  
+  /* This rule moves the handle of the toggle switch to the right by 26px when the input (checkbox) is in the "checked" state. */
+  input:checked + .slider:before {
+    transform: translateX(26px); /* Moves the handle to the right when clicked */
+  }
+  
+  /* Makes the slider edges rounded by setting the border-radius to 34px */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  /* Makes the toggle switch's small circle round by setting the border-radius to 50% */
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+/* Dark mode styles */
+body.dark-mode {
+    /* Image path for background image I created */
+    background-image: url(https://github.com/user-attachments/assets/da27f7eb-7525-4924-984d-fc2dff7c8f51);
+    background-size: cover; /* Ensures the image covers the entire body */
+    
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents repeating the image */
+}
+
+/* Display around the calculator - dark mode */
+body.dark-mode .calculator {
+    background-color: #3a414a; /* Set background color of the calculator */
+    
+    box-shadow: 0 10px 10px rgba(0,0,0,0.5); /* Adds a subtle shadow around the calculator to give it a 3D effect */
+}
+
+/* Where input and answers are displayed - dark mode */
+body.dark-mode #display {
+    background-color: black; /* Set the background color */
+    
+    color:#e08fff; /* Set text color */
+    border: 2px solid #e08fff; /* Set border color same as text color */
+}
+
+/* AC button - dark mode */
+body.dark-mode #clear-all {
+    background-color: black; /* Set the background color */
+    
+    color: #80fffe; /* Set the text color */
+    border: 2px solid #80fffe; /* Set border color same as font color */
+}
+
+/* Darker color buttons (like sin, log, etc.) - dark mode */
+body.dark-mode .dark-button {
+    background-color: black; /* Set the background color */
+    
+    color: #80fffe; /* Set color of text */
+    border: 2px solid #80fffe; /* Set border color same as font color */
+}
+
+/* Color for keypad buttons (like 0-9), decimal, and = (dark mode) */
+body.dark-mode .keypad-button {
+    background-color: #1c304e; /* Set the background color */
+    
+    color: #ff80df; /* Set color of text */
+    border: 2px solid #ff80df; /* Set border color same as font color */
+}
+
+/* When cursor hovers over button - dark mode */
+body.dark-mode button:hover {
+    background-color: rgb(76, 85, 85); /* Set color of background when hovering */
+}
