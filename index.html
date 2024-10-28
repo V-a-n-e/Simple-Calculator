@@ -1,0 +1,79 @@
+<!-- Vanessa Rodriguez -->
+<!-- November 24, 2024 -->
+
+<!-- HTML will be utilized to create the user interface, 
+including number buttons and operation signs -->
+
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="UTF-8">
+
+        <!-- Title of webpage -->
+        <title>Simple Calculator</title>
+        
+        <!-- Link style.css to this index.html file -->
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+
+        <!-- Dark mode toggle switch -->
+        <label class="switch">
+            <input type="checkbox" id="darkModeToggle" onclick="toggleDarkMode()">
+            <span class="slider round"></span>
+        </label>
+
+        <!-- Calculator container -->
+        <div class="calculator">
+
+            <!-- Display section - shows current input and result -->
+            <div class="display-container">
+                <!-- Input field for displaying numbers and results, disabled for manual typing -->
+                <input type="text" id="display" disabled>
+                <!-- Clear all button -->
+                <button id="clear-all" onclick="clearAll()">AC</button>
+            </div>
+
+            <!-- Buttons section - contains number and operation buttons -->
+            <div class="buttons">
+                <!-- Row one of buttons - sin, log, 1, 2, 3, and + -->
+                <button class="dark-button" onclick="calculateSin()">sin</button>
+                <button class="dark-button" onclick="calculateLog()">log</button>
+                <button class="keypad-button" onclick="appendValue('1')">1</button>
+                <button class="keypad-button" onclick="appendValue('2')">2</button>
+                <button class="keypad-button" onclick="appendValue('3')">3</button>
+                <button class="dark-button" onclick="performOperation('+')">+</button>
+
+                <!-- Row two of buttons - cos, ln, 4, 5, 6, and - -->
+                <button class="dark-button" onclick="calculateCos()">cos</button>
+                <button class="dark-button" onclick="calculateLn()">ln</button>
+                <button class="keypad-button" onclick="appendValue('4')">4</button>
+                <button class="keypad-button" onclick="appendValue('5')">5</button>
+                <button class="keypad-button" onclick="appendValue('6')">6</button>
+                <button class="dark-button" onclick="performOperation('-')">-</button>
+
+                <!-- Row three of buttons - tan, √, 7, 8, 9, and x -->
+                <button class="dark-button" onclick="calculateTan()">tan</button>
+                <button class="dark-button" onclick="calculateSqrt()">√</button>
+                <button class="keypad-button" onclick="appendValue('7')">7</button>
+                <button class="keypad-button" onclick="appendValue('8')">8</button>
+                <button class="keypad-button" onclick="appendValue('9')">9</button>
+                <button class="dark-button" onclick="performOperation('*')">x</button>
+
+                <!-- Row four of buttons - π, x^y, ., 0, =, ÷ -->
+                <button class="dark-button" onclick="insertPi()">π</button>
+                <button class="dark-button" onclick="performOperation('^')">x^y</button>
+                <button class="keypad-button" onclick="addDecimal()">.</button>
+                <button class="keypad-button" onclick="appendValue('0')">0</button>
+                <button class="keypad-button" onclick="calculate()">=</button>
+                <button class="dark-button" onclick="performOperation('/')">÷</button>
+            </div>
+        </div>
+
+        <!-- Link script.js to this index.html file -->
+        <script src="script.js"></script>
+
+    </body>
+</html>
